@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutOfBounds : MonoBehaviour
+public class DestroyOutOfBounds : MonoBehaviour
 {
+    private float topOfScene = 30.0f;
+    private float bottomOfScene = -10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,13 @@ public class OutOfBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(transform.position.z > topOfScene)
+        {
+            Destroy(gameObject); //destroys clone of food item when out of bounds
+        }
+        else if(transform.position.z < bottomOfScene)
+        {
+            Destroy(gameObject);
+        }
     }
 }
